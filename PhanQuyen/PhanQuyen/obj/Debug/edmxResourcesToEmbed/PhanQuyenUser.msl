@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Module_DangNhap_PhanQuyenModelStoreContainer" CdmEntityContainer="Module_DangNhap_PhanQuyenEntities1">
+    <EntitySetMapping Name="loaiNguoiDungs">
+      <EntityTypeMapping TypeName="Module_DangNhap_PhanQuyenModel.loaiNguoiDung">
+        <MappingFragment StoreEntitySet="loaiNguoiDung">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tenLoaiNguoiDung" ColumnName="tenLoaiNguoiDung" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nguoiDungs">
+      <EntityTypeMapping TypeName="Module_DangNhap_PhanQuyenModel.nguoiDung">
+        <MappingFragment StoreEntitySet="nguoiDung">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ho_va_ten" ColumnName="ho_va_ten" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password_moi" ColumnName="password_moi" />
+          <ScalarProperty Name="password_cu" ColumnName="password_cu" />
+          <ScalarProperty Name="loaiNguoiDung_id" ColumnName="loaiNguoiDung_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quyens">
+      <EntityTypeMapping TypeName="Module_DangNhap_PhanQuyenModel.quyen">
+        <MappingFragment StoreEntitySet="quyen">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tenQuyen" ColumnName="tenQuyen" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Module_DangNhap_PhanQuyenModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="loaiNguoiDung_Quyen" TypeName="Module_DangNhap_PhanQuyenModel.loaiNguoiDung_Quyen" StoreEntitySet="loaiNguoiDung_Quyen">
+      <EndProperty Name="loaiNguoiDung">
+        <ScalarProperty Name="id" ColumnName="loaiNguoiDung_id" />
+      </EndProperty>
+      <EndProperty Name="quyen">
+        <ScalarProperty Name="id" ColumnName="quyen_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="nguoiDung_Quyen" TypeName="Module_DangNhap_PhanQuyenModel.nguoiDung_Quyen" StoreEntitySet="nguoiDung_Quyen">
+      <EndProperty Name="nguoiDung">
+        <ScalarProperty Name="id" ColumnName="nguoiDung_id" />
+      </EndProperty>
+      <EndProperty Name="quyen">
+        <ScalarProperty Name="id" ColumnName="quyen_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Module_DangNhap_PhanQuyenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="loaiNguoiDung">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenLoaiNguoiDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="moTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="nguoiDungs" Relationship="Self.fk_nguoiDung_loaiNguoiDung" FromRole="loaiNguoiDung" ToRole="nguoiDung" />
+    <NavigationProperty Name="quyens" Relationship="Self.loaiNguoiDung_Quyen" FromRole="loaiNguoiDung" ToRole="quyen" />
+  </EntityType>
+  <EntityType Name="nguoiDung">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ho_va_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password_moi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password_cu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loaiNguoiDung_id" Type="Int32" />
+    <NavigationProperty Name="loaiNguoiDung" Relationship="Self.fk_nguoiDung_loaiNguoiDung" FromRole="nguoiDung" ToRole="loaiNguoiDung" />
+    <NavigationProperty Name="quyens" Relationship="Self.nguoiDung_Quyen" FromRole="nguoiDung" ToRole="quyen" />
+  </EntityType>
+  <EntityType Name="quyen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="moTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="loaiNguoiDungs" Relationship="Self.loaiNguoiDung_Quyen" FromRole="quyen" ToRole="loaiNguoiDung" />
+    <NavigationProperty Name="nguoiDungs" Relationship="Self.nguoiDung_Quyen" FromRole="quyen" ToRole="nguoiDung" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="fk_nguoiDung_loaiNguoiDung">
+    <End Role="loaiNguoiDung" Type="Self.loaiNguoiDung" Multiplicity="0..1" />
+    <End Role="nguoiDung" Type="Self.nguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loaiNguoiDung">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="nguoiDung">
+        <PropertyRef Name="loaiNguoiDung_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="loaiNguoiDung_Quyen">
+    <End Role="loaiNguoiDung" Type="Self.loaiNguoiDung" Multiplicity="*" />
+    <End Role="quyen" Type="Self.quyen" Multiplicity="*" />
+  </Association>
+  <Association Name="nguoiDung_Quyen">
+    <End Role="nguoiDung" Type="Self.nguoiDung" Multiplicity="*" />
+    <End Role="quyen" Type="Self.quyen" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Module_DangNhap_PhanQuyenEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="loaiNguoiDungs" EntityType="Self.loaiNguoiDung" />
+    <EntitySet Name="nguoiDungs" EntityType="Self.nguoiDung" />
+    <EntitySet Name="quyens" EntityType="Self.quyen" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="fk_nguoiDung_loaiNguoiDung" Association="Self.fk_nguoiDung_loaiNguoiDung">
+      <End Role="loaiNguoiDung" EntitySet="loaiNguoiDungs" />
+      <End Role="nguoiDung" EntitySet="nguoiDungs" />
+    </AssociationSet>
+    <AssociationSet Name="loaiNguoiDung_Quyen" Association="Self.loaiNguoiDung_Quyen">
+      <End Role="loaiNguoiDung" EntitySet="loaiNguoiDungs" />
+      <End Role="quyen" EntitySet="quyens" />
+    </AssociationSet>
+    <AssociationSet Name="nguoiDung_Quyen" Association="Self.nguoiDung_Quyen">
+      <End Role="nguoiDung" EntitySet="nguoiDungs" />
+      <End Role="quyen" EntitySet="quyens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
