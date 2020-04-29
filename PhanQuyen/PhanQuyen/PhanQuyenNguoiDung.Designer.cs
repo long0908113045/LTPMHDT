@@ -114,26 +114,29 @@
             // 
             // buttonInsert
             // 
+            this.buttonInsert.BackColor = System.Drawing.Color.Azure;
             this.buttonInsert.Location = new System.Drawing.Point(458, 156);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(121, 23);
             this.buttonInsert.TabIndex = 8;
             this.buttonInsert.Text = "insert Ca Nhan";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // buttonIsertLoai
             // 
+            this.buttonIsertLoai.BackColor = System.Drawing.Color.Azure;
             this.buttonIsertLoai.Location = new System.Drawing.Point(1072, 156);
             this.buttonIsertLoai.Name = "buttonIsertLoai";
             this.buttonIsertLoai.Size = new System.Drawing.Size(121, 23);
             this.buttonIsertLoai.TabIndex = 9;
             this.buttonIsertLoai.Text = "Insert Loai";
-            this.buttonIsertLoai.UseVisualStyleBackColor = true;
+            this.buttonIsertLoai.UseVisualStyleBackColor = false;
             this.buttonIsertLoai.Click += new System.EventHandler(this.buttonIsertLoai_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(50, 203);
             this.dataGridView1.Name = "dataGridView1";
@@ -144,6 +147,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(634, 203);
             this.dataGridView2.Name = "dataGridView2";
@@ -156,6 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1205, 450);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);

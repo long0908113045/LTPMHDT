@@ -87,18 +87,20 @@
             // 
             // buttonChangePassword
             // 
+            this.buttonChangePassword.BackColor = System.Drawing.Color.Azure;
             this.buttonChangePassword.Location = new System.Drawing.Point(244, 270);
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(266, 70);
             this.buttonChangePassword.TabIndex = 6;
             this.buttonChangePassword.Text = "Change password";
-            this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.UseVisualStyleBackColor = false;
             this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonChangePassword);
             this.Controls.Add(this.label3);

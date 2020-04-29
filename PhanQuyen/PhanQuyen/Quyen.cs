@@ -38,7 +38,12 @@ namespace PhanQuyen
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
+            if (textBoxName.Text == string.Empty)
+                textBoxName.Text = null;
+            if (textBoxMoTa.Text == string.Empty)
+                textBoxMoTa.Text = null;
             quyen q = new quyen { tenQuyen = textBoxName.Text, moTa = textBoxMoTa.Text };
+            
             if (q.Insert())
             {
                 loadQuyen();

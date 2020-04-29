@@ -41,20 +41,26 @@ namespace PhanQuyen
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-            StringBuilder errorMessages = new StringBuilder();
-            nguoiDung nguoidung = new nguoiDung { id = Convert.ToInt32(textBoxID.Text),ho_va_ten = textBoxName.Text,username = textBoxUser.Text,password_moi = textBoxPass.Text,loaiNguoiDung_id = Convert.ToInt32(comboBoxLoaiNguoiDung.SelectedValue)};
+            if (textBoxName.Text == string.Empty)
+                textBoxName.Text = null;
+            if (textBoxUser.Text == string.Empty)
+                textBoxUser.Text = null;
+            if (textBoxPass.Text == string.Empty)
+                textBoxPass.Text = null;
+            if (comboBoxLoaiNguoiDung.Text == string.Empty)
+                comboBoxLoaiNguoiDung.Text = null;
+
+            nguoiDung nguoidung = new nguoiDung { ho_va_ten = textBoxName.Text,username = textBoxUser.Text,password_moi = textBoxPass.Text,loaiNguoiDung_id = Convert.ToInt32(comboBoxLoaiNguoiDung.SelectedValue)};
+
             
-                
-                if (nguoidung.Insert())
+            if (nguoidung.Insert())
                 {
                     loadNguoiDung();
                 }
                 else
                 {
                     MessageBox.Show("Fail");
-                }
-            
-            
+                }        
         }
     }
 }

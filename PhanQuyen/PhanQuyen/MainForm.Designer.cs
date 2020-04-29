@@ -41,16 +41,18 @@
             // 
             // buttonChangePassword
             // 
+            this.buttonChangePassword.BackColor = System.Drawing.Color.Azure;
             this.buttonChangePassword.Location = new System.Drawing.Point(648, 54);
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(152, 83);
             this.buttonChangePassword.TabIndex = 0;
             this.buttonChangePassword.Text = "Change Password";
-            this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.UseVisualStyleBackColor = false;
             this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
             // 
             // dataGridViewQuyenLoaiNguoiDung
             // 
+            this.dataGridViewQuyenLoaiNguoiDung.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewQuyenLoaiNguoiDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQuyenLoaiNguoiDung.Location = new System.Drawing.Point(76, 54);
             this.dataGridViewQuyenLoaiNguoiDung.Name = "dataGridViewQuyenLoaiNguoiDung";
@@ -61,6 +63,7 @@
             // 
             // dataGridViewQuyenNguoiDung
             // 
+            this.dataGridViewQuyenNguoiDung.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewQuyenNguoiDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQuyenNguoiDung.Location = new System.Drawing.Point(76, 248);
             this.dataGridViewQuyenNguoiDung.Name = "dataGridViewQuyenNguoiDung";
@@ -71,48 +74,53 @@
             // 
             // buttonTypeUser
             // 
+            this.buttonTypeUser.BackColor = System.Drawing.Color.Azure;
             this.buttonTypeUser.Location = new System.Drawing.Point(227, 12);
             this.buttonTypeUser.Name = "buttonTypeUser";
             this.buttonTypeUser.Size = new System.Drawing.Size(151, 23);
             this.buttonTypeUser.TabIndex = 3;
             this.buttonTypeUser.Text = "Manager Type User";
-            this.buttonTypeUser.UseVisualStyleBackColor = true;
+            this.buttonTypeUser.UseVisualStyleBackColor = false;
             this.buttonTypeUser.Click += new System.EventHandler(this.buttonTypeUser_Click);
             // 
             // buttonManageUser
             // 
+            this.buttonManageUser.BackColor = System.Drawing.Color.Azure;
             this.buttonManageUser.Location = new System.Drawing.Point(76, 12);
             this.buttonManageUser.Name = "buttonManageUser";
             this.buttonManageUser.Size = new System.Drawing.Size(122, 23);
             this.buttonManageUser.TabIndex = 4;
             this.buttonManageUser.Text = "Manager user";
-            this.buttonManageUser.UseVisualStyleBackColor = true;
+            this.buttonManageUser.UseVisualStyleBackColor = false;
             this.buttonManageUser.Click += new System.EventHandler(this.buttonManageUser_Click);
             // 
             // buttonQuyen
             // 
+            this.buttonQuyen.BackColor = System.Drawing.Color.Azure;
             this.buttonQuyen.Location = new System.Drawing.Point(409, 12);
             this.buttonQuyen.Name = "buttonQuyen";
             this.buttonQuyen.Size = new System.Drawing.Size(141, 23);
             this.buttonQuyen.TabIndex = 5;
             this.buttonQuyen.Text = "Quyen";
-            this.buttonQuyen.UseVisualStyleBackColor = true;
+            this.buttonQuyen.UseVisualStyleBackColor = false;
             this.buttonQuyen.Click += new System.EventHandler(this.buttonQuyen_Click);
             // 
             // buttonPhanQuyen
             // 
+            this.buttonPhanQuyen.BackColor = System.Drawing.Color.Azure;
             this.buttonPhanQuyen.Location = new System.Drawing.Point(567, 12);
             this.buttonPhanQuyen.Name = "buttonPhanQuyen";
             this.buttonPhanQuyen.Size = new System.Drawing.Size(233, 23);
             this.buttonPhanQuyen.TabIndex = 6;
             this.buttonPhanQuyen.Text = "Phan Quyen User";
-            this.buttonPhanQuyen.UseVisualStyleBackColor = true;
+            this.buttonPhanQuyen.UseVisualStyleBackColor = false;
             this.buttonPhanQuyen.Click += new System.EventHandler(this.buttonPhanQuyen_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonPhanQuyen);
             this.Controls.Add(this.buttonQuyen);
@@ -121,6 +129,7 @@
             this.Controls.Add(this.dataGridViewQuyenNguoiDung);
             this.Controls.Add(this.dataGridViewQuyenLoaiNguoiDung);
             this.Controls.Add(this.buttonChangePassword);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);

@@ -45,6 +45,7 @@
             // 
             // dataGridViewNguoiDung
             // 
+            this.dataGridViewNguoiDung.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewNguoiDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNguoiDung.Location = new System.Drawing.Point(12, 21);
             this.dataGridViewNguoiDung.Name = "dataGridViewNguoiDung";
@@ -129,12 +130,13 @@
             // 
             // buttonInsert
             // 
+            this.buttonInsert.BackColor = System.Drawing.Color.Azure;
             this.buttonInsert.Location = new System.Drawing.Point(1019, 332);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(271, 106);
             this.buttonInsert.TabIndex = 13;
             this.buttonInsert.Text = "Insert";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // comboBoxLoaiNguoiDung
@@ -149,6 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1302, 474);
             this.Controls.Add(this.comboBoxLoaiNguoiDung);
             this.Controls.Add(this.buttonInsert);

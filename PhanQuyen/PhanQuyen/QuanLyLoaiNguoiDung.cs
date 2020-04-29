@@ -31,7 +31,12 @@ namespace PhanQuyen
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
+            if (textBoxName.Text == string.Empty)
+                textBoxName.Text = null;
+            if (textBoxMota.Text == string.Empty)
+                textBoxMota.Text = null;
             loaiNguoiDung loainguoidung = new loaiNguoiDung {tenLoaiNguoiDung = textBoxName.Text,moTa = textBoxMota.Text };
+            
             if(loainguoidung.Insert())
             {
                 loadLoaiNguoiDung();

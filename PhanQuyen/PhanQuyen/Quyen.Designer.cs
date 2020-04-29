@@ -41,6 +41,7 @@
             // 
             // dataGridViewQuyen
             // 
+            this.dataGridViewQuyen.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewQuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQuyen.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewQuyen.Name = "dataGridViewQuyen";
@@ -100,18 +101,21 @@
             // 
             // buttonInsert
             // 
+            this.buttonInsert.BackColor = System.Drawing.Color.Azure;
+            this.buttonInsert.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonInsert.Location = new System.Drawing.Point(680, 302);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(99, 57);
             this.buttonInsert.TabIndex = 7;
             this.buttonInsert.Text = "Insert";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // Quyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(991, 450);
             this.Controls.Add(this.buttonInsert);
             this.Controls.Add(this.label3);
@@ -121,6 +125,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.dataGridViewQuyen);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Quyen";
             this.Text = "Quyen";
             this.Load += new System.EventHandler(this.Quyen_Load);

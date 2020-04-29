@@ -41,6 +41,7 @@
             // 
             // dataGridViewLoaiNguoiDung
             // 
+            this.dataGridViewLoaiNguoiDung.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewLoaiNguoiDung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLoaiNguoiDung.Location = new System.Drawing.Point(21, 0);
             this.dataGridViewLoaiNguoiDung.Name = "dataGridViewLoaiNguoiDung";
@@ -73,12 +74,13 @@
             // 
             // buttonInsert
             // 
+            this.buttonInsert.BackColor = System.Drawing.Color.Azure;
             this.buttonInsert.Location = new System.Drawing.Point(753, 237);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(204, 121);
             this.buttonInsert.TabIndex = 4;
             this.buttonInsert.Text = "Insert";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // label1
@@ -112,6 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(969, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
