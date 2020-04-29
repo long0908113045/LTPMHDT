@@ -22,45 +22,126 @@ namespace PhanQuyen
         }
         public void loadNguoiDung()
         {
-            nguoiDung nguoidung = new nguoiDung();
-            loaiNguoiDung loainguoidung = new loaiNguoiDung();
-            dataGridViewNguoiDung.DataSource = nguoidung.ShowtableNguoiDung();
-            comboBoxLoaiNguoiDung.DataSource = loainguoidung.ShowtableNguoiDung();
-            comboBoxLoaiNguoiDung.ValueMember = "id";
-            comboBoxLoaiNguoiDung.DisplayMember = "tenLoaiNguoiDung";
+            try
+            {
+                nguoiDung nguoidung = new nguoiDung();
+                loaiNguoiDung loainguoidung = new loaiNguoiDung();
+                dataGridViewNguoiDung.DataSource = nguoidung.ShowtableNguoiDung();
+                comboBoxLoaiNguoiDung.DataSource = loainguoidung.ShowtableNguoiDung();
+                comboBoxLoaiNguoiDung.ValueMember = "id";
+                comboBoxLoaiNguoiDung.DisplayMember = "tenLoaiNguoiDung";
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            }
         }
 
         private void dataGridViewNguoiDung_DoubleClick(object sender, EventArgs e)
         {
-            textBoxID.Text = dataGridViewNguoiDung.CurrentRow.Cells[0].Value.ToString();
-            textBoxName.Text = dataGridViewNguoiDung.CurrentRow.Cells[1].Value.ToString();
-            textBoxUser.Text = dataGridViewNguoiDung.CurrentRow.Cells[2].Value.ToString();
-            textBoxPass .Text= dataGridViewNguoiDung.CurrentRow.Cells[3].Value.ToString();
-            comboBoxLoaiNguoiDung.Text = dataGridViewNguoiDung.CurrentRow.Cells[5].Value.ToString();
+            try
+            {
+                textBoxID.Text = dataGridViewNguoiDung.CurrentRow.Cells[0].Value.ToString();
+                textBoxName.Text = dataGridViewNguoiDung.CurrentRow.Cells[1].Value.ToString();
+                textBoxUser.Text = dataGridViewNguoiDung.CurrentRow.Cells[2].Value.ToString();
+                textBoxPass.Text = dataGridViewNguoiDung.CurrentRow.Cells[3].Value.ToString();
+                comboBoxLoaiNguoiDung.Text = dataGridViewNguoiDung.CurrentRow.Cells[5].Value.ToString();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            }
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-            if (textBoxName.Text == string.Empty)
-                textBoxName.Text = null;
-            if (textBoxUser.Text == string.Empty)
-                textBoxUser.Text = null;
-            if (textBoxPass.Text == string.Empty)
-                textBoxPass.Text = null;
-            if (comboBoxLoaiNguoiDung.Text == string.Empty)
-                comboBoxLoaiNguoiDung.Text = null;
-
-            nguoiDung nguoidung = new nguoiDung { ho_va_ten = textBoxName.Text,username = textBoxUser.Text,password_moi = textBoxPass.Text,loaiNguoiDung_id = Convert.ToInt32(comboBoxLoaiNguoiDung.SelectedValue)};
-
-            
-            if (nguoidung.Insert())
+            try
+            {
+                if (Ivaild())
                 {
-                    loadNguoiDung();
+                    nguoiDung nguoidung = new nguoiDung { ho_va_ten = textBoxName.Text, username = textBoxUser.Text, password_moi = textBoxPass.Text, loaiNguoiDung_id = Convert.ToInt32(comboBoxLoaiNguoiDung.SelectedValue) };
+
+
+                    if (nguoidung.Insert())
+                    {
+                        loadNguoiDung();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
-                }        
+                    MessageBox.Show("Dien Du Thong Tin");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Ivaild())
+                {
+                    nguoiDung nguoidung = new nguoiDung { id = Convert.ToInt32(textBoxID.Text), ho_va_ten = textBoxName.Text, username = textBoxUser.Text, password_moi = textBoxPass.Text, loaiNguoiDung_id = Convert.ToInt32(comboBoxLoaiNguoiDung.SelectedValue) };
+                    if (nguoidung.Update())
+                    {
+                        loadNguoiDung();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Dien Du Thong Tin");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBoxID.Text != string.Empty)
+                {
+                    nguoiDung nguoidung = new nguoiDung { id = Convert.ToInt32(textBoxID.Text) };
+                    if (nguoidung.delete())
+                    {
+                        loadNguoiDung();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Dien Du Thong Tin");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            }
+        }
+        public bool Ivaild()
+        {
+            if (textBoxName.Text == string.Empty || textBoxID.Text == string.Empty|| textBoxPass.Text == string.Empty || textBoxUser.Text == string.Empty || comboBoxLoaiNguoiDung.Text == string.Empty)
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }

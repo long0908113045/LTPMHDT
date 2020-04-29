@@ -98,7 +98,7 @@ namespace PhanQuyen.Model
         }
         public DataTable QuyenLoaiNguoiDung(string User)
         {
-            SqlCommand command = new SqlCommand("select ND.ho_va_ten,LND.tenLoaiNguoiDung,Q.tenQuyen from nguoiDung ND join loaiNguoiDung LND on ND.id = LND.id join loaiNguoiDung_Quyen LNDQ ON LND.id = LNDQ.loaiNguoiDung_id join quyen Q on LNDQ.quyen_id = Q.id where ND.username = @username", mydb.Connection);
+            SqlCommand command = new SqlCommand("select ND.ho_va_ten,LND.tenLoaiNguoiDung,Q.tenQuyen,Q.id from nguoiDung ND join loaiNguoiDung LND on ND.id = LND.id join loaiNguoiDung_Quyen LNDQ ON LND.id = LNDQ.loaiNguoiDung_id join quyen Q on LNDQ.quyen_id = Q.id where ND.username = @username", mydb.Connection);
             command.Parameters.Add("@username", SqlDbType.NVarChar).Value = User;
             DataTable table = new DataTable();
             SqlDataAdapter Apter = new SqlDataAdapter(command);
@@ -107,7 +107,7 @@ namespace PhanQuyen.Model
         }
         public DataTable QuyenNguoiDung(string User)
         {
-            SqlCommand command = new SqlCommand("select ND.ho_va_ten,Q.tenQuyen from " +
+            SqlCommand command = new SqlCommand("select ND.ho_va_ten,Q.tenQuyen,Q.id from " +
                                                 "nguoiDung ND join nguoiDung_Quyen NDQ on ND.id = NDQ.nguoiDung_id " +
                                                 "join quyen Q on NDQ.quyen_id = Q.id " +
                                                 "where ND.username = @username", mydb.Connection);
@@ -153,6 +153,22 @@ namespace PhanQuyen.Model
             command.Parameters.Add("@password_moi", SqlDbType.NVarChar).Value = password_moi;
             command.Parameters.Add("@loaiNguoiDung_id", SqlDbType.Int).Value = loaiNguoiDung_id;
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool delete()
+        {
+            SqlCommand command = new SqlCommand("delete from nguoiDung Where id = @id", mydb.Connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
             {

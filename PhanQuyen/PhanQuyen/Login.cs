@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,18 +20,27 @@ namespace PhanQuyen
         }           
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            nguoiDung nguoidung = new nguoiDung { username = textBoxUserName.Text, password_moi = textBoxPassWord.Text };
-            if(nguoidung.checkUserAndPass()==true)
-            {
-                MessageBox.Show("login success");
-                string User = textBoxUserName.Text;
-                MainForm main = new MainForm(User);
-                main.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("fall");
-            }
+            //try
+            //{
+                nguoiDung nguoidung = new nguoiDung { username = textBoxUserName.Text, password_moi = textBoxPassWord.Text };
+                if (nguoidung.checkUserAndPass() == true)
+                {
+                    
+                    string User = textBoxUserName.Text;
+                    
+                    MainForm main = new MainForm(User);
+                    main.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("fall");
+                }
+            
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show("Lỗi SQL exception !\n" + ex.Message);
+            //}
         }
     }
 }
+

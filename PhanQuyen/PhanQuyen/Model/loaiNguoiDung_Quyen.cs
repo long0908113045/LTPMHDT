@@ -30,6 +30,41 @@ namespace PhanQuyen.Model
                 return false;
             }
         }
+        public bool update()
+        {
+            SqlCommand command = new SqlCommand("update loaiNguoiDung_Quyen set loaiNguoiDung_id=@loaiNguoiDung_id,quyen_id=@quyen_id Where quyen_id = @quyen_id and loaiNguoiDung_id = @loaiNguoiDung_id ", mydb.Connection);
+            command.Parameters.Add("@loaiNguoiDung_id", SqlDbType.Int).Value = loaiNguoiDung_id;
+            command.Parameters.Add("@quyen_id", SqlDbType.Int).Value = quyen_id;
+
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool delete()
+        {
+            SqlCommand command = new SqlCommand("delete from loaiNguoiDung_Quyen Where loaiNguoiDung_id = @loaiNguoiDung_id and quyen_id = @quyen_id ", mydb.Connection);
+            command.Parameters.Add("@quyen_id", SqlDbType.Int).Value = quyen_id;
+            command.Parameters.Add("@loaiNguoiDung_id", SqlDbType.Int).Value = loaiNguoiDung_id;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
         public DataTable ShowtableLoaiNguoiDung_Quyen()
         {
             SqlCommand command = new SqlCommand("select * from loaiNguoiDung_Quyen", mydb.Connection);

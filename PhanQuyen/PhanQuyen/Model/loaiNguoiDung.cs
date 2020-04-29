@@ -20,6 +20,40 @@ namespace PhanQuyen.Model
             SqlCommand command = new SqlCommand("insert into loaiNguoiDung (tenLoaiNguoiDung,moTa)" + " values (@tenLoaiNguoiDung,@moTa)", mydb.Connection);
             command.Parameters.Add("@tenLoaiNguoiDung", SqlDbType.NVarChar).Value = tenLoaiNguoiDung;
             command.Parameters.Add("@moTa", SqlDbType.NVarChar).Value = moTa;
+            mydb.openConnection();            
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool update()
+        {
+            SqlCommand command = new SqlCommand("update loaiNguoiDung set tenLoaiNguoiDung=@tenLoaiNguoiDung,moTa=@moTa Where id = @id", mydb.Connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@tenLoaiNguoiDung", SqlDbType.NVarChar).Value = tenLoaiNguoiDung;
+            command.Parameters.Add("@moTa", SqlDbType.NVarChar).Value = moTa;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool delete()
+        {
+            SqlCommand command = new SqlCommand("delete from loaiNguoiDung Where id = @id", mydb.Connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
             {

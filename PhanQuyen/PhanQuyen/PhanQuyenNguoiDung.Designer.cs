@@ -40,6 +40,8 @@
             this.buttonIsertLoai = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.buttonDeleteCaNhan = new System.Windows.Forms.Button();
+            this.buttonDeleteLoai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 43);
+            this.label1.Location = new System.Drawing.Point(47, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 4;
@@ -115,7 +117,7 @@
             // buttonInsert
             // 
             this.buttonInsert.BackColor = System.Drawing.Color.Azure;
-            this.buttonInsert.Location = new System.Drawing.Point(458, 156);
+            this.buttonInsert.Location = new System.Drawing.Point(50, 156);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(121, 23);
             this.buttonInsert.TabIndex = 8;
@@ -126,7 +128,7 @@
             // buttonIsertLoai
             // 
             this.buttonIsertLoai.BackColor = System.Drawing.Color.Azure;
-            this.buttonIsertLoai.Location = new System.Drawing.Point(1072, 156);
+            this.buttonIsertLoai.Location = new System.Drawing.Point(634, 156);
             this.buttonIsertLoai.Name = "buttonIsertLoai";
             this.buttonIsertLoai.Size = new System.Drawing.Size(121, 23);
             this.buttonIsertLoai.TabIndex = 9;
@@ -144,6 +146,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(529, 210);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // dataGridView2
             // 
@@ -155,6 +158,29 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(559, 210);
             this.dataGridView2.TabIndex = 11;
+            this.dataGridView2.DoubleClick += new System.EventHandler(this.dataGridView2_DoubleClick);
+            // 
+            // buttonDeleteCaNhan
+            // 
+            this.buttonDeleteCaNhan.BackColor = System.Drawing.Color.Azure;
+            this.buttonDeleteCaNhan.Location = new System.Drawing.Point(458, 156);
+            this.buttonDeleteCaNhan.Name = "buttonDeleteCaNhan";
+            this.buttonDeleteCaNhan.Size = new System.Drawing.Size(121, 23);
+            this.buttonDeleteCaNhan.TabIndex = 13;
+            this.buttonDeleteCaNhan.Text = "delete Ca Nhan";
+            this.buttonDeleteCaNhan.UseVisualStyleBackColor = false;
+            this.buttonDeleteCaNhan.Click += new System.EventHandler(this.buttonDeleteCaNhan_Click);
+            // 
+            // buttonDeleteLoai
+            // 
+            this.buttonDeleteLoai.BackColor = System.Drawing.Color.Azure;
+            this.buttonDeleteLoai.Location = new System.Drawing.Point(1072, 156);
+            this.buttonDeleteLoai.Name = "buttonDeleteLoai";
+            this.buttonDeleteLoai.Size = new System.Drawing.Size(121, 23);
+            this.buttonDeleteLoai.TabIndex = 14;
+            this.buttonDeleteLoai.Text = "delete Loai";
+            this.buttonDeleteLoai.UseVisualStyleBackColor = false;
+            this.buttonDeleteLoai.Click += new System.EventHandler(this.buttonDeleteLoai_Click);
             // 
             // PhanQuyenNguoiDung
             // 
@@ -162,6 +188,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1205, 450);
+            this.Controls.Add(this.buttonDeleteLoai);
+            this.Controls.Add(this.buttonDeleteCaNhan);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonIsertLoai);
@@ -198,5 +226,7 @@
         private System.Windows.Forms.Button buttonIsertLoai;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button buttonDeleteCaNhan;
+        private System.Windows.Forms.Button buttonDeleteLoai;
     }
 }

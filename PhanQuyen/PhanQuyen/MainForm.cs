@@ -15,6 +15,7 @@ namespace PhanQuyen
     {
         
         private string User;
+
         public MainForm (string user)
         {
             User = user;
@@ -33,10 +34,43 @@ namespace PhanQuyen
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            loadform();
+        }
+        public void loadform()
+        {
+            buttonManageUser.Visible = false;
+            buttonTypeUser.Visible = false;
+            buttonQuyen.Visible = false;
+            buttonPhanQuyen.Visible = false;
             nguoiDung nguoidung = new nguoiDung();
+            DataTable table = new DataTable();
+            table = nguoidung.QuyenLoaiNguoiDung(User);
+            
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
 
-            dataGridViewQuyenLoaiNguoiDung.DataSource = nguoidung.QuyenLoaiNguoiDung(User);
+                if (Convert.ToInt32(table.Rows[i][3].ToString()) == 1)
+                {
+                    buttonManageUser.Visible = true;
+                    buttonTypeUser.Visible = true;
+                    buttonQuyen.Visible = true;
+                    buttonPhanQuyen.Visible = true;
+                }
+            }
+            table = nguoidung.QuyenNguoiDung(User);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+
+                if (Convert.ToInt32(table.Rows[i][2].ToString()) == 1)
+                {
+                    buttonManageUser.Visible = true;
+                    buttonTypeUser.Visible = true;
+                    buttonQuyen.Visible = true;
+                    buttonPhanQuyen.Visible = true;
+                }
+            }
             dataGridViewQuyenNguoiDung.DataSource = nguoidung.QuyenNguoiDung(User);
+            dataGridViewQuyenLoaiNguoiDung.DataSource = nguoidung.QuyenLoaiNguoiDung(User);
         }
 
         private void buttonManageUser_Click(object sender, EventArgs e)

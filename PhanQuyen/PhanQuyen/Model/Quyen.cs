@@ -31,6 +31,40 @@ namespace PhanQuyen.Model
                 return false;
             }    
         }
+        public bool update()
+        {
+            SqlCommand command = new SqlCommand("update quyen set tenQuyen=@tenQuyen,moTa=@moTa Where id = @id", mydb.Connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@tenQuyen", SqlDbType.NVarChar).Value = tenQuyen;
+            command.Parameters.Add("@moTa", SqlDbType.NVarChar).Value = moTa;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool delete()
+        {
+            SqlCommand command = new SqlCommand("delete from quyen Where id = @id", mydb.Connection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
         public DataTable ShowtableQuyen()
         {
             SqlCommand command = new SqlCommand("select * from quyen", mydb.Connection);

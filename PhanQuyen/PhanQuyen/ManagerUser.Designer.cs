@@ -40,6 +40,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.comboBoxLoaiNguoiDung = new System.Windows.Forms.ComboBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNguoiDung)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             this.dataGridViewNguoiDung.Name = "dataGridViewNguoiDung";
             this.dataGridViewNguoiDung.RowHeadersWidth = 51;
             this.dataGridViewNguoiDung.RowTemplate.Height = 24;
-            this.dataGridViewNguoiDung.Size = new System.Drawing.Size(972, 417);
+            this.dataGridViewNguoiDung.Size = new System.Drawing.Size(960, 417);
             this.dataGridViewNguoiDung.TabIndex = 0;
             this.dataGridViewNguoiDung.DoubleClick += new System.EventHandler(this.dataGridViewNguoiDung_DoubleClick);
             // 
@@ -131,9 +133,9 @@
             // buttonInsert
             // 
             this.buttonInsert.BackColor = System.Drawing.Color.Azure;
-            this.buttonInsert.Location = new System.Drawing.Point(1019, 332);
+            this.buttonInsert.Location = new System.Drawing.Point(978, 332);
             this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(271, 106);
+            this.buttonInsert.Size = new System.Drawing.Size(103, 69);
             this.buttonInsert.TabIndex = 13;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = false;
@@ -147,12 +149,36 @@
             this.comboBoxLoaiNguoiDung.Size = new System.Drawing.Size(153, 24);
             this.comboBoxLoaiNguoiDung.TabIndex = 14;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.Azure;
+            this.buttonUpdate.Location = new System.Drawing.Point(1087, 332);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(103, 69);
+            this.buttonUpdate.TabIndex = 15;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.Azure;
+            this.buttonDelete.Location = new System.Drawing.Point(1196, 332);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(103, 69);
+            this.buttonDelete.TabIndex = 16;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // ManagerUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1302, 474);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.comboBoxLoaiNguoiDung);
             this.Controls.Add(this.buttonInsert);
             this.Controls.Add(this.label6);
@@ -187,5 +213,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.ComboBox comboBoxLoaiNguoiDung;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
